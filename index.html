@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Chagiyaa — A Little Winter World</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="opening" id="opening">
+ <div class="envelope-wrap">
+  <span class="owl-mark">🦉</span>
+  <div class="eyebrow">A winter letter, just for you</div>
+  <h2>Untuk Chagiyaa</h2>
+  <p>Ada sebuah surat kecil yang menunggumu di tengah hujan salju.</p>
+  <div class="envelope" id="envelope" onclick="openEnvelope()" role="button" tabindex="0" aria-label="Buka amplop">
+   <div class="env-back"></div><div class="env-flap"></div><div class="env-front"></div><div class="seal">♡</div>
+  </div>
+  <button class="btn" onclick="openEnvelope()">Buka suratmu ❄</button>
+  <p class="hint">Sentuh amplop atau tombol di atas</p>
+ </div>
+</div>
+<header class="hero" id="home">
+ <div class="hero-inner">
+  <span class="owl-mark">🦉</span><div class="eyebrow">A little winter world made just for you</div>
+  <h1>For <span class="script">Chagiyaa</span></h1>
+  <p>Seperti salju yang membuat dunia terasa tenang, semoga kehadiran halaman kecil ini membawa senyum untukmu. Ada seseorang yang ingin merayakan keberadaanmu.</p><span class="owl-note">For the girl who loves snow & little owls 🦉</span>
+  <button class="btn" onclick="document.querySelector('#about').scrollIntoView()">Buka dunia kecil ini ♡</button>
+ </div>
+</header>
+<nav>
+ <a href="#about">Tentangmu</a><a href="#gallery">Galeri</a><a href="#letter">Surat</a><a href="#countdown">Countdown</a><a href="#surprise">Kejutan</a><a href="#secret">Pesan rahasia</a>
+</nav>
+<main>
+<section id="about">
+ <div class="section-head"><small>01 · A little introduction</small><span class="owl-mark">🦉</span><h2>Someone lovely</h2><p>Satu halaman kecil untuk seseorang yang istimewa.</p></div>
+ <div class="card profile">
+  <div class="portrait"><div><span>♡</span><small>Tambahkan foto Nadzifa di sini melalui bagian Galeri.<br>Foto profil bisa diganti dengan foto pilihanmu.</small></div></div>
+  <div><h3>Nadzifa Az-Zahra</h3><p><em>Chagiyaa</em>, nama panggilan yang punya tempat tersendiri di halaman ini.</p>
+   <p class="editable" contenteditable="true" data-save-key="profile-note">Tulis hal-hal yang kamu kagumi darinya di sini. Misalnya tentang senyumnya, caranya bercerita, kebaikannya, atau hal sederhana yang membuatnya berbeda.</p>
+   <p class="hint">Bagian ini bisa langsung kamu klik dan edit.</p>
+  </div>
+ </div>
+</section>
+<section id="gallery">
+ <div class="section-head"><small>02 · Little moments</small><h2>Our photo corner</h2><p>Ganti kotak-kotak ini dengan foto favoritmu. Foto pilihanmu disimpan secara lokal di browser pada perangkat ini.</p></div>
+ <div class="grid">
+  <label class="photo"><span>❄ ＋ Tambahkan foto 1</span><input type="file" accept="image/*" onchange="loadPhoto(this)"></label>
+  <label class="photo"><span>❄ ＋ Tambahkan foto 2</span><input type="file" accept="image/*" onchange="loadPhoto(this)"></label>
+  <label class="photo"><span>❄ ＋ Tambahkan foto 3</span><input type="file" accept="image/*" onchange="loadPhoto(this)"></label>
+  <label class="photo"><span>❄ ＋ Tambahkan foto 4</span><input type="file" accept="image/*" onchange="loadPhoto(this)"></label>
+  <label class="photo"><span>❄ ＋ Tambahkan foto 5</span><input type="file" accept="image/*" onchange="loadPhoto(this)"></label>
+  <label class="photo"><span>❄ ＋ Tambahkan foto 6</span><input type="file" accept="image/*" onchange="loadPhoto(this)"></label>
+ </div>
+</section>
+<section id="letter">
+ <div class="section-head"><small>03 · From the heart</small><h2>A letter for you</h2><p>Beberapa kata yang mungkin tidak selalu mudah diucapkan.</p></div>
+ <article class="letter">
+  <p>Untuk Chagiyaa,</p>
+  <p contenteditable="true" data-save-key="letter-paragraph-1">Aku mungkin tidak selalu pandai merangkai kata, tetapi ada hal sederhana yang ingin kusampaikan: aku senang bisa mengenalmu. Ada banyak hal kecil tentang dirimu yang mungkin terlihat biasa saja bagimu, tetapi justru menjadi hal yang istimewa bagi orang yang memperhatikannya.</p>
+  <p contenteditable="true" data-save-key="letter-paragraph-2">Di hari ulang tahunmu nanti, aku berharap kamu selalu dikelilingi hal-hal baik. Semoga langkahmu dimudahkan, impianmu satu per satu tercapai, dan kamu selalu punya alasan untuk tersenyum.</p>
+  <p contenteditable="true" data-save-key="letter-paragraph-3">Terima kasih sudah menjadi dirimu sendiri. Jangan pernah merasa harus menjadi orang lain untuk terlihat berharga. Kamu sudah istimewa dengan caramu sendiri.</p>
+  <p class="sign">Dengan tulus,<br><span contenteditable="true" data-save-key="signature">Seseorang yang mengagumimu ❄</span></p>
+  <p class="hint">Surat ini bisa kamu klik untuk mengubah kata-katanya.</p>
+ </article>
+</section>
+<section id="countdown">
+ <div class="section-head"><small>04 · The day is coming</small><h2>Counting down to you</h2><p>Atur tanggal yang tepat. Saat ini tanggal ulang tahun diketahui berada di antara 11–20 Januari.</p></div>
+ <div class="date-control"><label for="day">Tanggal ulang tahun:</label><select id="day" onchange="updateCountdown()"></select><span>Januari 2027</span></div>
+ <div class="countdown" aria-live="polite">
+  <div class="timebox"><b id="days">—</b><span>HARI</span></div><div class="timebox"><b id="hours">—</b><span>JAM</span></div><div class="timebox"><b id="minutes">—</b><span>MENIT</span></div><div class="timebox"><b id="seconds">—</b><span>DETIK</span></div>
+ </div><p id="count-note" style="text-align:center;color:#9a7181">Menuju hari istimewamu ♡</p>
+</section>
+<section id="surprise">
+ <div class="section-head"><small>05 · A little surprise</small><h2>Something for you</h2><p>Tekan hadiah ini untuk membuka kejutan kecil.</p></div>
+ <div class="surprise card"><span class="gift">🎁</span><button class="btn" onclick="document.getElementById('surprise-msg').classList.toggle('show')">Buka hadiahmu</button>
+ <div class="hidden-message" id="surprise-msg"><h3>Happy birthday in advance, Chagiyaa! ❄</h3><p>Semoga tahun ini membawa lebih banyak kebahagiaan, keberanian untuk bermimpi, dan kesempatan untuk tumbuh menjadi versi terbaik dirimu. Kamu pantas mendapatkan hal-hal baik.</p><p>Jangan lupa bahagia, ya.</p></div></div>
+</section>
+<section id="secret">
+ <div class="section-head"><small>06 · Just between us</small><h2>A little secret</h2><p>Ada satu pesan yang menunggu untuk dibuka.</p></div>
+ <div class="secret card"><span style="font-size:45px">🔐</span><p>Masukkan kata kunci untuk membaca pesan rahasia.</p><input id="secret-key" type="password" placeholder="Kata kunci…"><br><button class="btn" onclick="unlockSecret()">Buka pesan rahasia</button>
+ <div id="secret-msg" class="hidden-message"><h3>Rahasia kecilku ♡</h3><p>Aku tidak tahu ke mana waktu akan membawa kita, tetapi aku tahu bahwa mengenalmu adalah salah satu hal menyenangkan yang ingin kusyukuri. Semoga suatu hari nanti aku punya keberanian untuk menyampaikan lebih banyak hal baik secara langsung.</p></div>
+ <p class="hint">Kata kunci awal: <b>chagiyaa</b>. Kamu bisa menggantinya di kode website.</p></div>
+</section>
+</main>
+<div class="musicbar"><button id="music-btn" aria-label="Putar musik" onclick="toggleMusic()">♫</button><span id="music-label">Musik: mati</span></div>
+<div class="owl-companion" aria-label="Lumi, teman burung hantu Chagiyaa">
+ <div class="owl-bubble" id="owl-bubble"><b>Lumi si Burung Hantu 🦉</b>Hai, Chagiyaa! Aku akan menemanimu menjelajahi dunia kecil ini. <br><button onclick="owlSayNext()">Lumi, katakan sesuatu</button></div>
+ <button class="owl-friend" onclick="owlSayNext()" aria-label="Ajak Lumi berbicara" title="Klik untuk berbicara dengan Lumi">🦉</button>
+</div>
+<footer>Made with a little affection, beneath a sky full of snowflakes, just for Chagiyaa. ♡<br><small style="font:11px Arial">January 2027 · A little winter wonderland for you</small></footer>
+<script src="js/script.js"></script>
+</body>
+</html>
