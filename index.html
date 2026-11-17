@@ -33,9 +33,11 @@
 </nav>
 <main>
 <section id="about">
- <div class="section-head"><small>01 · A little introduction</small><span class="owl-mark">🦉</span><h2>Someone lovely</h2><p>Satu halaman kecil untuk seseorang yang istimewa.</p></div>
+ <div class="section-head"><small>A little introduction</small><span class="owl-mark">🦉</span><h2>Someone lovely</h2><p>Satu halaman kecil untuk seseorang yang istimewa.</p></div>
  <div class="card profile">
-  <div class="portrait"><div><span>♡</span><small>Tambahkan foto Nadzifa di sini melalui bagian Galeri.<br>Foto profil bisa diganti dengan foto pilihanmu.</small></div></div>
+  <div class="portrait">
+  <img src="assets/images/nadzifa.jpeg" alt="Foto Nadzifa Az-Zahra">
+</div>
   <div><h3>Nadzifa Az-Zahra Br. Ginting</h3><p><em>Chagiyaa</em>, nama panggilan yang punya tempat tersendiri di halaman ini.</p>
    <p class="editable" contenteditable="true" data-save-key="profile-note">Tulis hal-hal yang kamu kagumi darinya di sini. Misalnya tentang senyumnya, caranya bercerita, kebaikannya, atau hal sederhana yang membuatnya berbeda.</p>
 
@@ -43,7 +45,7 @@
  </div>
 </section>
 <section id="gallery">
- <div class="section-head"><small>02 · Little moments</small><h2>Your photo corner</h2><p></div>
+ <div class="section-head"><small>Little moments</small><h2>Your photo corner</h2><p></div>
  <div class="grid">
   
 <div class="photo">
@@ -73,7 +75,7 @@
  </div>
 </section>
 <section id="letter">
- <div class="section-head"><small>03 · From the heart</small><h2>A letter for you</h2><p>Beberapa kata yang mungkin tidak selalu mudah diucapkan.</p></div>
+ <div class="section-head"><small>From the heart</small><h2>A letter for you</h2><p>Beberapa kata yang mungkin tidak selalu mudah diucapkan.</p></div>
  <article class="letter">
   <p>Untuk Chagiyaa,</p>
   <p contenteditable="true" data-save-key="letter-paragraph-1">Saya mungkin tidak selalu pandai merangkai kata, tetapi ada hal sederhana yang ingin saya sampaikan: saya senang bisa mengenalmu. Ada banyak hal kecil tentang dirimu yang mungkin terlihat biasa saja bagimu, tetapi justru menjadi hal yang istimewa bagi orang yang memperhatikannya.</p>
@@ -84,22 +86,25 @@
  </article>
 </section>
 <section id="countdown">
- <div class="section-head"><small>04 · The day is coming</small><h2>Counting down to you</h2></p></div>
- <div class="date-control"><label for="day">Tanggal ulang tahun:</label><select id="day" onchange="updateCountdown(14)"></select><span>Januari 2027</span></div>
+ <div class="section-head"><small>The day is comin<div class="date-control">
+  <span>Tanggal ulang tahun:</span>
+  <strong>14 Januari 2027 ♡</strong>
+</div></small><h2>Counting down to you</h2></p></div>
+ 
  <div class="countdown" aria-live="polite">
   <div class="timebox"><b id="days">—</b><span>HARI</span></div><div class="timebox"><b id="hours">—</b><span>JAM</span></div><div class="timebox"><b id="minutes">—</b><span>MENIT</span></div><div class="timebox"><b id="seconds">—</b><span>DETIK</span></div>
  </div><p id="count-note" style="text-align:center;color:#9a7181">Menuju hari istimewamu ♡</p>
 </section>
 <section id="surprise">
- <div class="section-head"><small>05 · A little surprise</small><h2>Something for you</h2><p>Tekan hadiah ini untuk membuka kejutan kecil.</p></div>
+ <div class="section-head"><small>A little surprise</small><h2>Something for you</h2><p>Tekan hadiah ini untuk membuka kejutan kecil.</p></div>
  <div class="surprise card"><span class="gift">🎁</span><button class="btn" onclick="document.getElementById('surprise-msg').classList.toggle('show')">Buka hadiahmu</button>
  <div class="hidden-message" id="surprise-msg"><h3>Happy birthday in advance, Chagiyaa! ❄</h3><p>Semoga tahun ini membawa lebih banyak kebahagiaan, keberanian untuk bermimpi, dan kesempatan untuk tumbuh menjadi versi terbaik dirimu. Kamu pantas mendapatkan hal-hal baik.</p><p>Jangan lupa bahagia, ya.</p></div></div>
 </section>
 <section id="secret">
- <div class="section-head"><small>06 · Just between us</small><h2>A little secret</h2><p>Ada satu pesan yang menunggu untuk dibuka.</p></div>
+ <div class="section-head"><small>Just between us</small><h2>A little secret</h2><p>Ada satu pesan yang menunggu untuk dibuka.</p></div>
  <div class="secret card"><span style="font-size:45px">🔐</span><p>Masukkan kata kunci untuk membaca pesan rahasia.</p><input id="secret-key" type="password" placeholder="Kata kunci…"><br><button class="btn" onclick="unlockSecret()">Buka pesan rahasia</button>
  <div id="secret-msg" class="hidden-message"><h3>Rahasia kecilku ♡</h3><p>Aku tidak tahu ke mana waktu akan membawa kita, tetapi aku tahu bahwa mengenalmu adalah salah satu hal menyenangkan yang ingin kusyukuri. Semoga suatu hari nanti aku punya keberanian untuk menyampaikan lebih banyak hal baik secara langsung.</p></div>
- <p class="hint">Kata kunci awal: <b>chagiyaa</b>. Kamu bisa menggantinya di kode website.</p></div>
+ <p class="hint">Kata kunci awal: <b>chagiyaa</b>.</p></div>
 </section>
 </main>
 <div class="musicbar"><button id="music-btn" aria-label="Putar musik" onclick="toggleMusic()">♫</button><span id="music-label">Musik: mati</span></div>

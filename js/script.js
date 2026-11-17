@@ -25,30 +25,76 @@ function makeSnow(){
 }
 setInterval(makeSnow,420);
 for(let i=0;i<14;i++)setTimeout(makeSnow,i*170);
-const daySelect=document.getElementById('day');
-for(let d=11;d<=20;d++){let o=document.createElement('option');o.value=d;o.textContent=d+' Januari';if(d===15)o.selected=true;daySelect.appendChild(o)}
-function updateCountdown(){
- const now=new Date(), target=new Date(2027,0,Number(daySelect.value),0,0,0);
- let diff=target-now;
- if(diff<=0){document.getElementById('days').textContent='♡';document.getElementById('hours').textContent='♡';document.getElementById('minutes').textContent='♡';document.getElementById('seconds').textContent='♡';document.getElementById('count-note').textContent='Hari istimewamu telah tiba. Selamat ulang tahun, Chagiyaa!';return}
- const units=[Math.floor(diff/86400000),Math.floor(diff/3600000)%24,Math.floor(diff/60000)%60,Math.floor(diff/1000)%60];
- ['days','hours','minutes','seconds'].forEach((id,i)=>document.getElementById(id).textContent=String(units[i]).padStart(2,'0'));
- document.getElementById('count-note').textContent='Menuju '+daySelect.value+' Januari 2027 ♡';
+;
+function updateCountdown() {
+  const now = new Date();
+  const target = new Date(2027, 0, 14, 0, 0, 0);
+
+  let diff = target - now;
+
+  if (diff <= 0) {
+    document.getElementById('days').textContent = '♡';
+    document.getElementById('hours').textContent = '♡';
+    document.getElementById('minutes').textContent = '♡';
+    document.getElementById('seconds').textContent = '♡';
+
+    document.getElementById('count-note').textContent =
+      'Hari istimewamu telah tiba. Selamat ulang tahun, Chagiyaa!';
+
+    return;
+  }
+
+  const units = [
+    Math.floor(diff / 86400000),
+    Math.floor(diff / 3600000) % 24,
+    Math.floor(diff / 60000) % 60,
+    Math.floor(diff / 1000) % 60
+  ];
+
+  ['days', 'hours', 'minutes', 'seconds'].forEach((id, i) => {
+    document.getElementById(id).textContent =
+      String(units[i]).padStart(2, '0');
+  });
+
+  document.getElementById('count-note').textContent =
+    'Menuju 14 Januari 2027 ♡';
 }
 setInterval(updateCountdown,1000);updateCountdown();
 function unlockSecret(){const key=document.getElementById('secret-key').value.trim().toLowerCase();if(key==='chagiyaa'){document.getElementById('secret-msg').classList.add('show')}else{alert('Kata kuncinya belum tepat. Coba lagi, ya ♡')}}
 let audioCtx=null,oscillators=[],playing=false;
-function toggleMusic(){
- const btn=document.getElementById('music-btn'),label=document.getElementById('music-label');
- if(!playing){
-  const AC=window.AudioContext||window.webkitAudioContext;if(!AC){label.textContent='Audio tidak didukung';return}
-  audioCtx=new AC();const master=audioCtx.createGain();master.gain.value=.035;master.connect(audioCtx.destination);
-  // Nada ambient original sederhana, dibuat langsung oleh browser.
-  const notes=[261.63,329.63,392.00,329.63,293.66,349.23,440.00,349.23];let i=0;
-  function note(){if(!playing)return;const osc=audioCtx.createOscillator(),gain=audioCtx.createGain();osc.type='sine';osc.frequency.value=notes[i++%notes.length];gain.gain.setValueAtTime(0,audioCtx.currentTime);gain.gain.linearRampToValueAtTime(1,audioCtx.currentTime+.15);gain.gain.linearRampToValueAtTime(0,audioCtx.currentTime+1.1);osc.connect(gain);gain.connect(master);osc.start();osc.stop(audioCtx.currentTime+1.15);setTimeout(note,900)}
-  playing=true;note();btn.textContent='Ⅱ';label.textContent='Musik: menyala';
- }else{playing=false;if(audioCtx){audioCtx.close();audioCtx=null}btn.textContent='♫';label.textContent='Musik: mati'}
+
+function toggleMusic() {
+  const btn = document.getElementById('music-btn');
+  const label = document.getElementById('music-label');
+
+  // Membuat pemutar MP3 jika belum tersedia
+  if (!window.chagiyaaMusicAudio) {
+    window.chagiyaaMusicAudio = new Audio('assets/music/lagu-chagiyaa.mp3');
+    window.chagiyaaMusicAudio.loop = true;
+    window.chagiyaaMusicAudio.volume = 0.5;
+  }
+
+  const audio = window.chagiyaaMusicAudio;
+
+  if (audio.paused) {
+    audio.play()
+      .then(() => {
+        btn.textContent = 'Ⅱ';
+        btn.setAttribute('aria-label', 'Jeda musik');
+        label.textContent = 'Musik: menyala ♡';
+      })
+      .catch((error) => {
+        console.error('Musik gagal diputar:', error);
+        label.textContent = 'Musik gagal diputar';
+      });
+  } else {
+    audio.pause();
+    btn.textContent = '♫';
+    btn.setAttribute('aria-label', 'Putar musik');
+    label.textContent = 'Musik: mati';
+  }
 }
+
 
 
 // ===== UI/UX POLISH: Winter Edition =====
